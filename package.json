@@ -1,0 +1,23 @@
+{
+  "name": "publicapi",
+  "version": "1.0.0",
+  "description": "(This is a command line application that will consume a public API)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "phabbs",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "publicapi": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^16.0.0",
+    "inquirer": "^2.0.0",
+    "superagent": "^3.3.1"
+  }
+}
