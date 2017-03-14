@@ -1,15 +1,15 @@
 #! /usr/bin/env node
-
-var superagent = require("superagent");
+ // my news app
+var superagent = require("superagent"); /**  required dependencies*/
 var inquirer = require("inquirer");
 var chalk = require("chalk");
 var figlet  = require('figlet')
 
 function BuildSource(source,sortby)
 {
-	return "https://newsapi.org/v1/articles?source=" + source + "&apiKey=a15864e776014990966b7593cb63d7e0&sortby" + sortby;
+	return "https://newsapi.org/v1/articles?source=" + source + "&apiKey=a15864e776014990966b7593cb63d7e0&sortby" + sortby;  //link to the api;
 }
-function Search(callback) {
+function Search(callback) { // function that demands input fron the user requesting new source;
   var questions = [
     {
       name: 'sources',
@@ -26,7 +26,7 @@ function Search(callback) {
     {
       name: 'sort',
       type: 'input',
-      message: 'You can sort by "top", "latest" or "popular" Sort By: ',
+      message: 'You can sort by "top", "latest" or "popular" Sort By: ',  // prompting to user to select category of selected nes source;
       validate: function(value) {
         if (value.length) {
         	if (value === "top" || value === "latest" || value === "popular"){
@@ -44,7 +44,7 @@ function Search(callback) {
 
   inquirer.prompt(questions).then(callback);
 }
-Search(function(){
+Search(function(){                                                         // function that displays information to the user;
 	superagent.get(BuildSource(arguments[0].sources,arguments[0].sort)).end(function(err, res){
 		if(err)
 		{
